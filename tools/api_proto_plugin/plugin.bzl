@@ -1,3 +1,5 @@
+load("@rules_proto//proto:defs.bzl", "ProtoInfo")
+
 # Borrowed from https://github.com/grpc/grpc-java/blob/v1.24.1/java_grpc_library.bzl#L61
 def _path_ignoring_repository(f):
     # Bazel creates a _virtual_imports directory in case the .proto source files

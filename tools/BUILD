@@ -7,6 +7,10 @@ load(
     "envoy_package",
     "envoy_py_test_binary",
 )
+load(
+    "//tools/type_whisperer:type_database.bzl",
+    "type_database",
+)
 
 envoy_package()
 
@@ -36,4 +40,9 @@ envoy_cc_binary(
         "//source/common/stats:isolated_store_lib",
         "@envoy_api//envoy/config/bootstrap/v2:pkg_cc_proto",
     ] + envoy_cc_platform_dep("//source/exe:platform_impl_lib"),
+)
+
+type_database(
+    name = "api_type_db",
+    targets = ["@envoy_api//docs:protos"],
 )
