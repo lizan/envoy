@@ -18,6 +18,7 @@ def _type_database_impl(ctx):
         inputs = type_db_deps,
         outputs = [ctx.outputs.pb_text],
         mnemonic = "TypeDbGen",
+        use_default_shell_env = True,
     )
 
 type_database = rule(

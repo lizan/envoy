@@ -8,8 +8,8 @@ load(
     "envoy_py_test_binary",
 )
 load(
-    "//tools/type_whisperer:type_database.bzl",
-    "type_database",
+    "//tools/protoxform:protoxform.bzl",
+    "protoxform",
 )
 
 envoy_package()
@@ -42,7 +42,7 @@ envoy_cc_binary(
     ] + envoy_cc_platform_dep("//source/exe:platform_impl_lib"),
 )
 
-type_database(
-    name = "api_type_db",
-    targets = ["@envoy_api//docs:protos"],
+protoxform(
+    name = "api",
+    targets = ["//tools/api_proto_plugin:default_type_db_target"],
 )

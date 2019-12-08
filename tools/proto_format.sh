@@ -14,7 +14,7 @@ rm -rf bazel-bin/external/envoy_api
 declare -r PROTO_TARGETS=$(bazel query "labels(srcs, labels(deps, @envoy_api//docs:protos))")
 
 # This is for local RBE setup, should be no-op for builds without RBE setting in bazelrc files.
-BAZEL_BUILD_OPTIONS+=" --remote_download_outputs=all --strategy=protoxform=sandboxed,local"
+BAZEL_BUILD_OPTIONS+=" --remote_download_outputs=all"
 
 # TODO(htuch): This script started life by cloning docs/build.sh. It depends on
 # the @envoy_api//docs:protos target in a few places as a result. This is not

@@ -10,3 +10,5 @@ go_proto_compiler(
     valid_archive = False,
     visibility = ["//visibility:public"],
 )
+
+exports_files(["external_proto_deps.bzl"])

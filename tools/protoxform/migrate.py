@@ -42,8 +42,8 @@ class UpgradeVisitor(visitor.Visitor):
         # We need to deal with envoy.api.* normalization in the v2 API. We won't
         # need this in v3+, so rather than churn docs, we just have this workaround.
         type_desc = self._typedb.types[api_v2_type_name]
-      repl_type = type_desc.next_version_type_name[len(
-          'envoy.'):] if type_desc.next_version_type_name else normalized_type_name
+      repl_type = type_desc.next_version_type_name[
+          len('envoy.'):] if type_desc.next_version_type_name else normalized_type_name
       return '<envoy_api_%s_%s%s>' % (ref_type, repl_type, '.' + residual if residual else '')
 
     return re.sub(ENVOY_COMMENT_WITH_TYPE_REGEX, UpgradeType, c)
@@ -153,7 +153,7 @@ def V3MigrationXform(file_proto):
     v3 FileDescriptorProto message.
   """
   # Load type database.
-  typedb = utils.LoadTypeDb()
+  typedb = utils.GetTypeDb()
   # If this isn't a proto in an upgraded package, return None.
   if file_proto.package not in typedb.next_version_packages or not typedb.next_version_packages[
       file_proto.package]:
