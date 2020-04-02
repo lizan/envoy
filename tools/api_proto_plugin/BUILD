@@ -1,7 +1,7 @@
-licenses(["notice"])  # Apache 2
-
 load("@rules_python//python:defs.bzl", "py_library")
 load("//tools/type_whisperer:type_database.bzl", "type_database")
+
+licenses(["notice"])  # Apache 2
 
 py_library(
     name = "api_proto_plugin",

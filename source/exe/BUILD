@@ -1,5 +1,3 @@
-licenses(["notice"])  # Apache 2
-
 load(
     "//bazel:envoy_build_system.bzl",
     "envoy_cc_binary",
@@ -15,6 +13,8 @@ load(
     "envoy_windows_extensions",
 )
 load("//bazel:repositories.bzl", "PPC_SKIP_TARGETS")
+
+licenses(["notice"])  # Apache 2
 
 envoy_package()
 
