@@ -653,9 +653,9 @@ def fixBuildPath(file_path):
       file_path) and not isWorkspaceFile(file_path):
     if os.system("%s %s %s" % (ENVOY_BUILD_FIXER_PATH, file_path, file_path)) != 0:
       error_messages += ["envoy_build_fixer rewrite failed for file: %s" % file_path]
-
-  if os.system("%s -mode=fix %s" % (BUILDIFIER_PATH, file_path)) != 0:
-    error_messages += ["buildifier rewrite failed for file: %s" % file_path]
+  else:
+    if os.system("%s -lint=fix -mode=fix %s" % (BUILDIFIER_PATH, file_path)) != 0:
+      error_messages += ["buildifier rewrite failed for file: %s" % file_path]
   return error_messages
 
 
@@ -677,7 +677,7 @@ def checkBuildPath(file_path):
     if not found:
       error_messages += ["API build file does not provide api_proto_package()"]
 
-  command = "%s -mode=diff %s" % (BUILDIFIER_PATH, file_path)
+  command = "%s -lint=warn -mode=diff %s" % (BUILDIFIER_PATH, file_path)
   error_messages += executeCommand(command, "buildifier check failed", file_path)
   error_messages += checkFileContents(file_path, checkBuildLine)
   return error_messages
