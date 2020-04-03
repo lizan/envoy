@@ -1,9 +1,10 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
+
 # DO NOT LOAD THIS FILE. Load envoy_build_system.bzl instead.
 # Envoy test targets. This includes both test library and test binary targets.
 
 load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar")
-load("@rules_python//python:defs.bzl", "py_binary")
-load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
 load(":envoy_binary.bzl", "envoy_cc_binary")
 load(":envoy_library.bzl", "tcmalloc_external_deps")
 load(

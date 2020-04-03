@@ -1,3 +1,5 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
 # DO NOT LOAD THIS FILE. Load envoy_build_system.bzl instead.
 # Envoy library targets
 load(
@@ -7,7 +9,6 @@ load(
     "envoy_linkstatic",
 )
 load("@envoy_api//bazel:api_build_system.bzl", "api_cc_py_proto_library")
-load("@rules_cc//cc:defs.bzl", "cc_library")
 
 # As above, but wrapped in list form for adding to dep lists. This smell seems needed as
 # SelectorValue values have to match the attribute type. See

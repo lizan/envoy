@@ -1,3 +1,5 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
 # DO NOT LOAD THIS FILE. Load envoy_build_system.bzl instead.
 # Envoy binary targets
 load(
@@ -7,7 +9,6 @@ load(
     "envoy_stdlib_deps",
     "tcmalloc_external_dep",
 )
-load("@rules_cc//cc:defs.bzl", "cc_binary")
 
 # Envoy C++ binary targets should be specified with this function.
 def envoy_cc_binary(
