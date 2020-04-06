@@ -678,7 +678,7 @@ def checkBuildPath(file_path):
     if not found:
       error_messages += ["API build file does not provide api_proto_package()"]
 
-  command = "%s -lint=warn -mode=diff %s" % (BUILDIFIER_PATH, file_path)
+  command = "%s -mode=diff %s" % (BUILDIFIER_PATH, file_path)
   error_messages += executeCommand(command, "buildifier check failed", file_path)
   error_messages += checkFileContents(file_path, checkBuildLine)
   return error_messages
