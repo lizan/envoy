@@ -11,13 +11,13 @@ licenses(["notice"])  # Apache 2
 
 envoy_package()
 
-exports_files([
-    "gen_git_sha.sh",
-    "code_format/check_format.py",
-    "code_format/header_order.py",
-    "code_format/envoy_build_fixer.py",
-    "check_repositories.sh",
-])
+# exports_files([
+#     "gen_git_sha.sh",
+#     "code_format/check_format.py",
+#     "code_format/header_order.py",
+#     "code_format/envoy_build_fixer.py",
+#     "check_repositories.sh",
+# ])
 
 envoy_py_test_binary(
     name = "socket_passing",
@@ -31,6 +31,7 @@ py_library(
     srcs = [
         "run_command.py",
     ],
+    imports = ["."],
     visibility = ["//visibility:public"],
 )
 

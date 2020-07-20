@@ -7,6 +7,10 @@ def _python_deps():
     pip_repositories()
 
     pip3_import(
+        name = "code_format_pip3",
+        requirements = "@envoy//tools/code_format:requirements.txt",
+    )
+    pip3_import(
         name = "config_validation_pip3",
         requirements = "@envoy//tools/config_validation:requirements.txt",
     )

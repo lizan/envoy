@@ -5,8 +5,6 @@
 # docker. Normally this is run via check_format_test.sh, which
 # executes it in under docker.
 
-from __future__ import print_function
-
 from run_command import runCommand
 import argparse
 import logging

@@ -5,6 +5,7 @@ load("@bazel_toolchains//rules/exec_properties:exec_properties.bzl", "create_rbe
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 load("@build_bazel_rules_apple//apple:repositories.bzl", "apple_rules_dependencies")
 load("@upb//bazel:repository_defs.bzl", upb_bazel_version_repository = "bazel_version_repository")
+load("@code_format_pip3//:requirements.bzl", code_format_pip_install = "pip_install")
 load("@config_validation_pip3//:requirements.bzl", config_validation_pip_install = "pip_install")
 load("@protodoc_pip3//:requirements.bzl", protodoc_pip_install = "pip_install")
 
@@ -51,3 +52,4 @@ def envoy_dependency_imports(go_version = GO_VERSION):
 
     config_validation_pip_install()
     protodoc_pip_install()
+    code_format_pip_install()
