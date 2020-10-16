@@ -854,9 +854,9 @@ REPOSITORY_LOCATIONS_SPEC = dict(
     io_bazel_rules_rust = dict(
         project_name = "Bazel rust rules",
         project_desc = "Bazel rust rules (used by Wasm)",
-        project_url = "https://github.com/bazelbuild/rules_rust",
-        version = "fb90a7484800157fbb8a5904fbeb608dc1effc0c",
-        sha256 = "cbb253b8c5ab1a3c1787790f900e7d6774e95ba038714fc0f710935e62f30f5f",
+        project_url = "https://github.com/lizan/rules_rust",
+        version = "0fe1f5a1c6edf8581dafc68ecc48947a8490f610",
+        sha256 = "6a0342b27b5447fb12e443b4aa3a8bc34f96902304acbec2a707587fbde64c1b",
         # Last commit where "out_binary = True" works.
         # See: https://github.com/bazelbuild/rules_rust/issues/386
         strip_prefix = "rules_rust-{version}",
