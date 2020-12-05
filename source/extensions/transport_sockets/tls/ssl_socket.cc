@@ -373,6 +373,7 @@ Network::TransportSocketPtr ClientSslSocketFactory::createTransportSocket(
     absl::ReaderMutexLock l(&ssl_ctx_mu_);
     ssl_ctx = ssl_ctx_;
   }
+  ASSERT(ssl_ctx != nullptr);
   if (ssl_ctx) {
     return std::make_unique<SslSocket>(std::move(ssl_ctx), InitialState::Client,
                                        transport_socket_options, config_->createHandshaker());

@@ -144,8 +144,6 @@ void SdsApi::onConfigUpdate(const std::vector<Config::DecodedResourceRef>& added
 void SdsApi::onConfigUpdateFailed(Envoy::Config::ConfigUpdateFailureReason reason,
                                   const EnvoyException*) {
   ASSERT(Envoy::Config::ConfigUpdateFailureReason::ConnectionFailure != reason);
-  // We need to allow server startup to continue, even if we have a bad config.
-  init_target_.ready();
 }
 
 void SdsApi::validateUpdateSize(int num_resources) {
